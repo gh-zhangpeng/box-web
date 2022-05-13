@@ -18,15 +18,13 @@ const router = useRouter()
 
 //登陆按钮的操作
 function login(params) {
-    console.debug(router)
-    router.push('/medical')
-    return
     http.post('/account/login', {
         email: email.value,
         password: password.value
     }).then(function (response) {
         Cookies.set('token', response.data.token, { expires: new Date(response.data.expiresAt) })
         ElMessage.success("登陆成功")
+        router.push('/medical')
     }).catch(function (error) {
         console.log(error);
         ElMessage.error("登陆失败")
