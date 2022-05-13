@@ -4,6 +4,7 @@ import register from '@/components/register.vue'
 </script>
 
 <template>
-  <login />
+  <div>index page</div>
+  <!-- <login /> -->
   <!-- <register /> -->
 </template>

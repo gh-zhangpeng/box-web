@@ -1,9 +1,10 @@
 <script setup>
 import { computed } from '@vue/reactivity';
-import http from '../utils/http'
+import http from '@/utils/http'
 import Cookies from 'js-cookie'
-import { ref } from 'vue'
+import { getCurrentInstance, ref } from 'vue'
 import { ElMessage } from 'element-plus';
+import { useRouter } from 'vue-router'
 
 //账户
 const email = ref("zhangpeng.0304@aliyun.com")
@@ -12,8 +13,14 @@ const password = ref("123456")
 //控制登陆按钮状态
 const canClick = computed(() => email.value.length > 0 && password.value.length > 0)
 
+// const ctx = getCurrentInstance()
+const router = useRouter()
+
 //登陆按钮的操作
 function login(params) {
+    console.debug(router)
+    router.push('/medical')
+    return
     http.post('/account/login', {
         email: email.value,
         password: password.value
