@@ -1,9 +1,8 @@
 <script setup>
-import { computed } from '@vue/reactivity';
+import { ref, computed } from '@vue/reactivity'
 import http from '@/utils/http'
 import Cookies from 'js-cookie'
-import { getCurrentInstance, ref } from 'vue'
-import { ElMessage } from 'element-plus';
+import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 
 //账户
